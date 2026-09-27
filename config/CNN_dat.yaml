@@ -1,0 +1,49 @@
+model:
+  name: "モデルの重みファイル名に使う"
+  layers:
+    - type: "Conv2d"
+      name: "conv1"
+      input_channel: 3
+      output_channel: 8
+      kernel_size: 2
+      stride: 2
+    - type: "ReLU"
+      name: "relu1"
+    - type: "MaxPool2d"
+      name: "pooling1"
+      kernel_size: 2
+      padding: 0
+      stride: 2
+    - type: "Conv2d"
+      name: "conv2"
+      input_channel: 8
+      output_channel: 16
+      kernel_size: 2
+      stride: 1
+    - type: "ReLU"
+      name: "relu2"
+    - type: "MaxPool2d"
+      name: "pooling2"
+      kernel_size: 2
+      padding: 0
+      stride: 1
+    - type: "MaxPool2d"
+      kernel_size: 3          
+      padding: 0
+      stride: 1 
+    - type: "Flatten"
+      name: "flatten"
+    - type: "Linear"
+      name: "liner"
+      input_size: 256
+      output_size: 3
+
+  softmax: true
+
+learning:
+  optimizer:
+    type: Adam
+    learning_rate: 0.001
+
+  loss:
+    type: CrossEntropyLoss

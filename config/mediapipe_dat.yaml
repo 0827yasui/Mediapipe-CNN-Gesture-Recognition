@@ -1,0 +1,11 @@
+hand:
+  Number_of_hands_: 2
+  min_hand_detection_confidence_: 0.5
+  min_hand_presence_confidence_: 0.5
+  min_tracking_confidence_: 0.5
+
+face:
+  Number_of_faces_: 1
+  min_face_detection_confidence_: 0.5
+  min_face_presence_confidence_: 0.5
+  min_tracking_confidence_: 0.5
