@@ -30,7 +30,7 @@ class Mediapipe():
         ):
         options = vision.HandLandmarkerOptions(
             base_options = python.BaseOptions(
-                model_asset_path = str(HAND_LANDMAEKER_PATH)
+                model_asset_buffer = HAND_LANDMAEKER_PATH.read_bytes()
             ),
             running_mode = vision.RunningMode.VIDEO,
             num_hands = num_hands_,
@@ -50,7 +50,7 @@ class Mediapipe():
         ):
         options = vision.FaceLandmarkerOptions(
             base_options=python.BaseOptions(
-                model_asset_path = str(FACE_LANDMAEKER_PATH)
+                model_asset_buffer = FACE_LANDMAEKER_PATH.read_bytes()
             ),
             running_mode=vision.RunningMode.VIDEO,
             num_faces = num_faces_,

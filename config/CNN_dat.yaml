@@ -1,5 +1,11 @@
 model:
-  name: "モデルの重みファイル名に使う"
+  name: "cnn"
+
+  input:
+    channel: 3
+    width: 32
+    height: 32
+
   layers:
     - type: "Conv2d"
       name: "conv1"
@@ -7,34 +13,43 @@ model:
       output_channel: 8
       kernel_size: 2
       stride: 2
+
     - type: "ReLU"
       name: "relu1"
+
     - type: "MaxPool2d"
       name: "pooling1"
       kernel_size: 2
       padding: 0
       stride: 2
+
     - type: "Conv2d"
       name: "conv2"
       input_channel: 8
       output_channel: 16
       kernel_size: 2
       stride: 1
+
     - type: "ReLU"
       name: "relu2"
+
     - type: "MaxPool2d"
       name: "pooling2"
       kernel_size: 2
       padding: 0
       stride: 1
+
     - type: "MaxPool2d"
-      kernel_size: 3          
+      name: "pooling3"
+      kernel_size: 3
       padding: 0
-      stride: 1 
+      stride: 1
+
     - type: "Flatten"
       name: "flatten"
+
     - type: "Linear"
-      name: "liner"
+      name: "linear"
       input_size: 256
       output_size: 3
 
@@ -42,8 +57,8 @@ model:
 
 learning:
   optimizer:
-    type: Adam
+    type: "Adam"
     learning_rate: 0.001
 
   loss:
-    type: CrossEntropyLoss
+    type: "CrossEntropyLoss"

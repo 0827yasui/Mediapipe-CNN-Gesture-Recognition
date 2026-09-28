@@ -34,3 +34,6 @@ class Frame_use:
 
     def print_frame_dark_(self, frame):
         return self.frame.print_frame_dark(frame)
+
+    def tensor_(self, frame, width, height):
+        return self.frame.tensor(frame, width, height)

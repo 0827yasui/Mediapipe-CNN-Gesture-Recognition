@@ -2,6 +2,7 @@ import cv2 as cv
 import mediapipe as mp
 import numpy as np
 from enum import Enum
+import torch
 
 class FlipDirection(Enum):
     VERTICAL = 0
@@ -28,6 +29,27 @@ class Frame():
             image_format=mp.ImageFormat.SRGB,
             data=rgb
         )
+    
+    def tensor(self, frame, width, height):
+        resized = cv.resize(
+            frame,
+            (width, height)
+        )
+
+        rgb = cv.cvtColor(
+            resized,
+            cv.COLOR_BGR2RGB
+        )
+
+        tensor = torch.from_numpy(
+            rgb
+        ).permute(
+            2, 0, 1
+        ).float() / 255.0
+
+        tensor = tensor.unsqueeze(0)
+
+        return tensor
 
     def print_frame_dark(self, frame):
         dark_frame = np.zeros_like(frame)
