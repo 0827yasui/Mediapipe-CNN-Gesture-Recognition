@@ -9,6 +9,7 @@ CAMERA_YAML_PATH = CONFIG_DIR / "camera_dat.yaml"
 FRAME_YAML_PATH = CONFIG_DIR / "frame_dat.yaml"
 MEDIAPIPE_YAML_PATH = CONFIG_DIR / "mediapipe_dat.yaml"
 CNN_YAML_PATH = CONFIG_DIR / "CNN_dat.yaml"
+LEARNING_YAML_PATH = CONFIG_DIR / "learning.yaml"
 
 
 class Setting():
@@ -18,3 +19,4 @@ class Setting():
         self.frame_data = self.yaml_read.Set_Yaml(FRAME_YAML_PATH)
         self.Mediapipe_data = self.yaml_read.Set_Yaml(MEDIAPIPE_YAML_PATH)
         self.CNN_data = self.yaml_read.Set_Yaml(CNN_YAML_PATH)
+        self.learning_data = self.yaml_read.Set_Yaml(LEARNING_YAML_PATH)

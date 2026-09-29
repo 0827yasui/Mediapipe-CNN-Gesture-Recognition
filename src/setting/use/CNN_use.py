@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 
 class CNN_use():
-    def __init__(self):
+    def __init__(self, mode):
         self.setting = Setting()
         self.CNN_dat = self.setting.CNN_data
         self.CNN = CNN()
@@ -43,7 +43,7 @@ class CNN_use():
                     output_size=layer["output_size"]
                 )
 
-    def forword(self, input):
+    def forward(self, input):
         logits = self.CNN.forward(input)
         if self.CNN_dat["model"]["softmax"]:
             logits = self.CNN.softmax(logits)
