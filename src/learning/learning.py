@@ -36,9 +36,20 @@ class Learning():
 
     def learning(self):
         data = list(zip(self.tensor_data, self.tensor_labels))
+        acc_list = []
 
         for _ in range(self.epoch):
             if self.shuffle:
                 random.shuffle(data)
+            acc = 0.0
+            correct_count = 0
+            total = 0
+
             for tensor, label in data:
-                self.cnn.train(tensor, label)
+                logits, loss, result = self.cnn.train(tensor, label)
+                if result:
+                    correct_count += 1
+                total += 1
+            acc = correct_count / total
+            acc_list.append(acc)
+        return acc_list

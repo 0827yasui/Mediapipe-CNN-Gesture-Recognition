@@ -51,6 +51,8 @@ class CNN_use():
 
     def train(self, frame, label):
         logits, loss = self.CNN.train_step(frame, label, self.optimizer, self.loss_fn)
+        prediction = logits.argmax(dim=1)
+        correct = (prediction == label)
         return logits, loss
 
 # -----------------------------------------------------------------------------------------------------
