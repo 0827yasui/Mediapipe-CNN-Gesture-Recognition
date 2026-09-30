@@ -4,7 +4,7 @@ from pathlib import Path
 
 class JPG_Input():
     def __init__(self, mode):
-        self.data_dir = Path(__file__).resolve().parents[3] / "data"
+        self.data_dir = Path(__file__).resolve().parents[4] / "data"
 
         if mode == 0:       # train
             self.data = "train_data"
@@ -17,7 +17,7 @@ class JPG_Input():
     def input(self, frame, label):
         file_name = self.create_file_name()
         image_path = self.image_dir / file_name
-        
+
         cv.imwrite(str(image_path), frame)
 
         with open(

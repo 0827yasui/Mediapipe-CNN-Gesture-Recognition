@@ -6,12 +6,7 @@ class Frame_use:
         self.frame = Frame()
         self.setting = Setting()
         self.frame_data_direction = self.setting.frame_data
-        if mode == 0: # train
-            self.frame_data_size = self.setting.CNN_train_data
-        elif mode == 1: # test
-            self.frame_data_size = self.setting.CNN_test_data
-        else:
-            self.frame_data_size = self.setting.CNN_data
+        self.frame_data_size = self.setting.CNN_data
 
     def resize_(self, frame):
         size = self.frame_data_size["model"]["input"]

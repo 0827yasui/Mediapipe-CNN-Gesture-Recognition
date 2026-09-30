@@ -1,4 +1,4 @@
-from src.library.data.file_open.jpg import data_set
+from src.library.data.file_open.jpg_read import data_set
 from src.setting.use.frame_use import Frame_use
 
 

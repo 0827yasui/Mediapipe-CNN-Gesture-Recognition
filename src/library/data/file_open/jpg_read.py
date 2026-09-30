@@ -4,7 +4,7 @@ from pathlib import Path
 
 class data_set():
     def __init__(self):
-        self.data_dir = Path(__file__).resolve().parents[3] / "data"
+        self.data_dir = Path(__file__).resolve().parents[4] / "data"
 
         self.reader = []
         self.jpg_list = []
