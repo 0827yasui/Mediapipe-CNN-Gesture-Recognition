@@ -46,6 +46,5 @@ class data_set():
         for i in range(len(self.labels_list)):
             self.labels_data.append(int(self.labels_list[i]))
 
-
     def get_data(self):
         return self.jpg_data, self.labels_data
