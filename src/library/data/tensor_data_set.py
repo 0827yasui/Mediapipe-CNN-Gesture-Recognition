@@ -1,7 +1,6 @@
 from src.library.data.file_open.jpg_read import data_set
 from src.setting.use.frame_use import Frame_use
 
-
 class Data():
     def __init__(self, mode):
         self.data_set = data_set()

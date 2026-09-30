@@ -35,7 +35,7 @@ class Learning():
         self.shuffle = learning_data["shuffle"]
 
     def learning(self):
-        data = list(zip(self.tensor_data, self.tensor_labels))
+        data = list(zip(self.data.data_set.jpg_list, self.tensor_data, self.tensor_labels))
         acc_list = []
 
         for epoch in range(self.epoch):
@@ -45,11 +45,18 @@ class Learning():
             correct_count = 0
             total = 0
 
-            for tensor, label in data:
+            for file_name, tensor, label in data:
                 logits, loss, result = self.cnn.train(tensor, label)
                 if result:
                     correct_count += 1
                 total += 1
+
             acc = correct_count / total
             acc_list.append({"epoch": epoch + 1, "acc": acc})
+
+            print(
+                f"Epoch {epoch + 1} Accuracy: "
+                f"{acc:.4f} ({acc * 100:.2f}%)"
+            )
+            
         return acc_list
