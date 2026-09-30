@@ -24,8 +24,8 @@ def main():
             if frame is None:
                 break
 
-            image = frame_use.resize_(frame)
             frame = frame_use.flip_(frame)
+            image = frame_use.resize_(frame)
             image = frame_use.image_(image)
             hand_result = mediapipe_use.hand_detect(image, timestamp_ms)
 
