@@ -37,9 +37,7 @@ class Learning():
         self.shuffle = learning_data["shuffle"]
 
     def learning(self):
-        if self.mode == LearningMode.TRAIN:
-            self.cnn.save()
-        elif self.mode == LearningMode.TEST:
+        if self.mode == LearningMode.TEST:
             self.cnn.load()
 
         data = list(zip(self.data.data_set.jpg_list, self.tensor_data, self.tensor_labels))
@@ -75,4 +73,7 @@ class Learning():
                 f"Epoch {epoch + 1} Accuracy: "
                 f"{acc:.4f} ({acc * 100:.2f}%)"
             )
+
+        if self.mode == LearningMode.TRAIN:
+            self.cnn.save()
         return acc_list
