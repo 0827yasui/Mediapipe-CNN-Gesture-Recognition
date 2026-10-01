@@ -1,0 +1,9 @@
+train:
+  epoch: 1
+  batch: 16
+  shuffle: True  
+
+test:
+  epoch: 1
+  batch: 16
+  shuffle: True
