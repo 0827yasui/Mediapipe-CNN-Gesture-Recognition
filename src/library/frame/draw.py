@@ -16,9 +16,6 @@ def landmark_to_point(frame, landmark):
 
 class Draw():
     def __init__(self):
-        # /////////////////////////
-        #   デバッグメッセージ
-        # /////////////////////////
         pass
 
     def face_landmarkers_dot(self, frame, face_result):

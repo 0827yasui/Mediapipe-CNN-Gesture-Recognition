@@ -52,15 +52,8 @@ def main():
             # ---------------------------------------------
             result = frame_use.print_frame_dark_(frame)
 
-            draw.hand_landmarkers_dot(
-                result,
-                hand_result
-            )
-
-            draw.hand_landmarkers_line(
-                result,
-                hand_result
-            )
+            draw.hand_landmarkers_dot(result, hand_result)
+            draw.hand_landmarkers_line(result, hand_result)
 
             # ---------------------------------------------
             # CNN用Tensorへ変換

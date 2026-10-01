@@ -12,9 +12,6 @@ FACE_LANDMAEKER_PATH = MODEL_DIR / "face_landmarker.task"
 
 class Mediapipe():
     def __init__(self):
-        # /////////////////////////
-        #   デバッグメッセージ
-        # /////////////////////////
         pass
 
 # /////////////////////////////////////////

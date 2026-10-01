@@ -8,19 +8,11 @@ class Camera():
     def camera_open(self, camera_num):
         cap = cv.VideoCapture(camera_num)
         if False == cap.isOpened():
-            # //////////////////////////////////////
-            #   エラー処理
-            # //////////////////////////////////////
-            
-            pass
+            raise ValueError("カメラが開けませんでした。")
         return cap
 
     def frame_get(self, cap):
         ret, frame = cap.read()
         if False == ret:
-            # //////////////////////////////////////
-            #   エラー処理
-            # //////////////////////////////////////
-                        
-            pass
+            raise ValueError("カメラ画像が取得できませんでした。")
         return frame

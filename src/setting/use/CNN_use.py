@@ -94,10 +94,7 @@ class CNN_use():
             )
 
         else:
-            # //////////////////////////////////////
-            #   エラー処理
-            # //////////////////////////////////////        
-            pass
+            raise ValueError(f"現在のoptimizerはサポートしていません: {optimizer_type}")
 
     def loss_fn_create(self):
         loss_type = self.CNN_dat["learning"]["loss"]["type"]
@@ -107,7 +104,5 @@ class CNN_use():
         elif loss_type == "MSELoss":
             self.loss_fn = nn.MSELoss()
         else:
-            # //////////////////////////////////////
-            #   エラー処理
-            # //////////////////////////////////////        
-            pass
+           raise ValueError(f"現在のloss関数はサポートしていません: {loss_type}")
+                            
