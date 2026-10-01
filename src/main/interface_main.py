@@ -65,7 +65,7 @@ def main():
             # ---------------------------------------------
             # CNN用Tensorへ変換
             # ---------------------------------------------
-            tensor = frame_use.tensor_(result)
+            tensor = frame_use.tensor_(result).unsqueeze(0)
 
             # ---------------------------------------------
             # CNN
