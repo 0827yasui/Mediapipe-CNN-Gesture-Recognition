@@ -2,7 +2,6 @@ from enum import Enum
 import random
 import torch
 import cv2 as cv
-
 from src.library.data.tensor_data_set import Data
 from src.setting.use.CNN_use import CNN_use
 from src.setting.setting import Setting
@@ -77,11 +76,6 @@ class Learning():
 
             acc = correct_count / total if total > 0 else 0.0
             acc_list.append({"epoch": epoch + 1, "acc": acc})
-
-            print(
-                f"Epoch {epoch + 1} Accuracy: "
-                f"{acc:.4f} ({acc * 100:.2f}%)"
-            )
 
         if self.mode == LearningMode.TRAIN:
             self.cnn.save()
