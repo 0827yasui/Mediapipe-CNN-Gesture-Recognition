@@ -41,6 +41,7 @@ def main():
             image = frame_use.resize_(frame)
             image = frame_use.image_(image)
 
+
             # ---------------------------------------------
             # MediaPipe
             # ---------------------------------------------
@@ -54,9 +55,13 @@ def main():
             # ---------------------------------------------
             result = frame_use.print_frame_dark_(frame)
 
+            result_show = result.copy()
             draw.hand_landmarkers_dot(result, hand_result)
             draw.hand_landmarkers_line(result, hand_result)
-
+            draw.hand_landmarkers_dot(result_show, hand_result)
+            draw.hand_landmarkers_line(result_show, hand_result)
+            result = frame_use.crop_(result, hand_result)
+            
             # ---------------------------------------------
             # CNN用Tensorへ変換
             # ---------------------------------------------
@@ -85,7 +90,7 @@ def main():
             print(text)
 
             draw.put_text(
-                result,
+                result_show,
                 text,
                 (10, 30),
                 1.0,
@@ -95,7 +100,7 @@ def main():
 
             cv.imshow(
                 "Interface",
-                result
+                result_show
             )
 
             # ESC

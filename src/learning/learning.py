@@ -1,6 +1,7 @@
 from enum import Enum
 import random
 import torch
+import cv2 as cv
 
 from src.library.data.tensor_data_set import Data
 from src.setting.use.CNN_use import CNN_use
@@ -56,6 +57,14 @@ class Learning():
                 file_names, tensors, labels = zip(*batch_data)
 
                 frame = torch.stack(tensors)
+
+                show_frame = frame[0].detach().cpu().permute(1, 2, 0).numpy()
+                show_frame = (show_frame * 255).clip(0, 255).astype("uint8")
+                show_frame = cv.cvtColor(show_frame, cv.COLOR_RGB2BGR)
+
+                cv.imshow("Learning Frame", show_frame)
+                cv.waitKey(1)
+
                 label = torch.tensor(labels, dtype=torch.long)
 
                 if self.mode == LearningMode.TRAIN:

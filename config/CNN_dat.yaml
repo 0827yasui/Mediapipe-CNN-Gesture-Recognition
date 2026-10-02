@@ -3,8 +3,8 @@ model:
 
   input:
     channel: 3
-    width: 64
-    height: 64
+    width: 128
+    height: 128
 
   layers:
     - type: "Conv2d"
@@ -50,7 +50,7 @@ model:
 
     - type: "Linear"
       name: "linear"
-      input_size: 784
+      input_size: 3600
       output_size: 3
 
   softmax: true
@@ -58,7 +58,7 @@ model:
 learning:
   optimizer:
     type: "Adam"
-    learning_rate: 0.025
+    learning_rate: 0.0005
 
   loss:
     type: "CrossEntropyLoss"

@@ -32,6 +32,7 @@ def main():
             result = frame_use.print_frame_dark_(frame)
             draw.hand_landmarkers_dot(result, hand_result)
             draw.hand_landmarkers_line(result, hand_result)
+            result = frame_use.crop_(result, hand_result)
 
             cv.imshow("Hand Image", result)
             key = cv.waitKey(1)

@@ -1,9 +1,9 @@
 train:
   epoch: 17
-  batch: 100
+  batch: 20
   shuffle: True  
 
 test:
   epoch: 1
-  batch: 100
+  batch: 20
   shuffle: True

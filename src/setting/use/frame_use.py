@@ -43,3 +43,13 @@ class Frame_use:
             size["width"],
             size["height"]
         )
+
+    def crop_(self, frame, hand_landmarks):
+        size = self.frame_data_size["model"]["input"]
+
+        return self.frame.crop(
+            frame,
+            hand_landmarks,
+            size["width"],
+            size["height"]
+        )

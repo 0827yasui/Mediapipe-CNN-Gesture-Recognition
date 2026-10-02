@@ -22,7 +22,6 @@ class Data():
             label = self.labels_data[i]
 
             frame = self.frame.resize_(frame)
-            frame = self.frame.flip_(frame)
             frame = self.frame.tensor_(frame)
 
             self.tensor_data.append(frame)
