@@ -15,6 +15,8 @@ def main():
     cnn_use = CNN_use(mode=1)
     draw = Draw()
 
+    cnn_use.load()
+
     camera.camera_open()
     timestamp_ms = 0
 
@@ -100,7 +102,7 @@ def main():
             if cv.waitKey(1) == 27:
                 break
 
-            timestamp_ms += 1
+            timestamp_ms += 33
 
     finally:
         cv.destroyAllWindows()
